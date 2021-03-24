@@ -1,3 +1,5 @@
+# NoitaDecode
+
 This project is meant to provide tools exploring the Noita's eye enigma
 
 It as been written in Python 3.7
