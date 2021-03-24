@@ -154,7 +154,7 @@ def pretty_print_message(message):
 
 folders = ['Out/E1','Out/E2','Out/E3','Out/E4','Out/E5','Out/W1','Out/W2','Out/W3','Out/W4']
 
-parse_all_data()
+#parse_all_data()
 for folder in folders:
     message = load_as_array(folder)
     pretty_print_message(message)
