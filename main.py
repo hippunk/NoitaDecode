@@ -96,3 +96,8 @@ parse_image('Data/E2.png')
 parse_image('Data/E3.png')
 parse_image('Data/E4.png')
 parse_image('Data/E5.png')
+
+parse_image('Data/W1.png')
+parse_image('Data/W2.png')
+parse_image('Data/W3.png')
+parse_image('Data/W4.png')
