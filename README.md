@@ -1,3 +1,5 @@
+# NoitaDecode
+
 This project is meant to provide tools exploring the Noita's eye enigma
 
 It as been written in Python 3.7
@@ -19,6 +21,7 @@ After execution you'll find:
   - C for Center
 
 I didn't took that much time to clean the code, so it's actually some kind of a mess. I apologies for that. It will be better in a few times.
+I'm open to feedback and pool request ;).
 
 ## What's next ?
 
