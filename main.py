@@ -19,7 +19,7 @@ def match_template(eye):
     res["N"] = cv2.matchTemplate(resized_eye, N_template, method)[0][0]
     res["S"] = cv2.matchTemplate(resized_eye, S_template, method)[0][0]
     res["E"] = cv2.matchTemplate(resized_eye, E_template, method)[0][0]
-    res["O"] = cv2.matchTemplate(resized_eye, O_template, method)[0][0]
+    res["W"] = cv2.matchTemplate(resized_eye, O_template, method)[0][0]
     res["C"] = cv2.matchTemplate(resized_eye, C_template, method)[0][0]
 
     return max(res, key=res.get)
@@ -37,7 +37,7 @@ def parse_image(image_path):
     scale_factor = 4
     area_size_threshold = 400
 
-    image = cv2.resize(image, (image.shape[1] * (scale_factor), image.shape[0] * (scale_factor+2)))
+    image = cv2.resize(image, (image.shape[1] * (scale_factor), image.shape[0] * (scale_factor + 2)))
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU + cv2.THRESH_BINARY)[1]
     laplacian = cv2.Laplacian(thresh, cv2.CV_8UC1, ksize=3)
@@ -65,10 +65,8 @@ def parse_image(image_path):
             res = match_template(eye)
             os.makedirs(out_folder, exist_ok=True)
 
-
             tmp_file_name = str(y) + "_" + str(x) + "_" + match_template(eye) + '.png'
             cv2.imwrite(os.path.join(out_folder, tmp_file_name), eye)
-
 
     cv2.imwrite(image_name_without_ext + ".png", image)
     # Dirty name parsing because I'm still lazy
@@ -78,7 +76,7 @@ def parse_image(image_path):
     max_x = 0
     last_y = 0
 
-    #correct y offcet
+    # correct y offcet
     for filename in inList:
         filename_without_ext = os.path.splitext(filename)[0]
         filename_tokens = filename_without_ext.split('_')
@@ -110,7 +108,7 @@ def parse_image(image_path):
         pattern_out_folder = os.path.join("Out", "PatternChecker", orientation)
         os.makedirs(pattern_out_folder, exist_ok=True)
         shutil.copyfile(os.path.join(out_folder, file_out_name),
-        os.path.join(pattern_out_folder, image_name_without_ext + "_" + file_out_name))
+                        os.path.join(pattern_out_folder, image_name_without_ext + "_" + file_out_name))
 
 
 def parse_all_data():
@@ -124,6 +122,7 @@ def parse_all_data():
     parse_image('Data/W2.png')
     parse_image('Data/W3.png')
     parse_image('Data/W4.png')
+
 
 def load_as_array(path):
     inList = natsorted(os.listdir(path), alg=ns.PATH)
@@ -141,22 +140,87 @@ def load_as_array(path):
 
     return message
 
-def parse_to_trigram(message):
-    pass
+
+def transform_to_trigram(message):
+    trigrams = []
+    i = 0
+    while i < len(message):
+        j = 0
+        while j < len(message[i]):
+
+            trigrams.append([message[i][j], message[i][j + 1], [message[i + 1][j]]])
+            if j+2 < len(message[i]):
+                trigrams.append([message[i + 1][j + 1], message[i + 1][j + 2], [message[i][j + 2]]])
+            j += 3
+        trigrams.append("\n")
+        i += 2
+    return trigrams
+
 
 def pretty_print_message(message):
     for coord_x in message:
         str = ""
         for coord_y in message[coord_x]:
-            str += message[coord_x][coord_y]+" "
+            str += message[coord_x][coord_y] + " "
 
         print(str)
 
-folders = ['Out/E1','Out/E2','Out/E3','Out/E4','Out/E5','Out/W1','Out/W2','Out/W3','Out/W4']
 
-#parse_all_data()
+def parse_trigrams_to_numeric(trigrams):
+    val = []
+    for trigram in trigrams:
+        if trigram is not "\n":
+            count = 0
+            for char in trigram:
+                if isinstance(char, list):
+                    #Here there's an option to compute special operation through key value
+                    char = char[0]
+                if char == 'N':
+                    count += 1
+                if char == 'S':
+                    count += 2
+                if char == 'W':
+                    count += 4
+                if char == 'E':
+                    count += 8
+                if char == 'C':
+                    count += 16
+            #print(trigram,count)
+            val.append(count)
+        #else:
+        #    val.append("\n")
+    return val
+
+def pretty_print_trigrams(trigrams):
+    text = ""
+    for trigram in trigrams:
+        text += str(trigram)
+    print(text)
+
+def catch_unique(list_in):
+   # intilize an empty list
+   unq_list = []
+
+   # Check for elements
+   for x in list_in:
+      # check if exists in unq_list
+      if x not in unq_list:
+         unq_list.append(x)
+         # print list
+   return unq_list
+
+folders = ['Out/E1', 'Out/E2', 'Out/E3', 'Out/E4', 'Out/E5', 'Out/W1', 'Out/W2', 'Out/W3', 'Out/W4']
+
+# parse_all_data()
+all_values = []
 for folder in folders:
     message = load_as_array(folder)
     pretty_print_message(message)
-    print()
+    trigrams = transform_to_trigram(message)
+    pretty_print_trigrams(trigrams)
+    values = parse_trigrams_to_numeric(trigrams)
+    for value in values:
+        all_values.append(value)
+
+print(len(catch_unique(all_values)))
 
