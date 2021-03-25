@@ -52,6 +52,7 @@ print("All values frequency")
 frequency = compute_list_frequency(all_values_no_whitespace)
 frequency_sorted,frequency_list = sort_dict(frequency)
 print(frequency_sorted)  # {1: 1, 3: 4, 2: 9}
+print(frequency_list)  # {1: 1, 3: 4, 2: 9}
 print()
 
 #Get noita text list
@@ -66,6 +67,33 @@ noita_frequency = compute_list_frequency(get_all_noita_text())
 noita_frequency_sorted,noita_frequency_list = sort_dict(noita_frequency)
 print(noita_frequency_sorted)  # {1: 1, 3: 4, 2: 9}
 print(noita_frequency_list)
+print("noita char count : "+str(len(noita_frequency_list)))
 print()
 
+#Used to test manual permutation to find word matches
 noita_raw_frequency_list = [' ', 'I', 'A', 'T', 'U', 'N', 'L', 'E', 'O', 'S', 'K', 'Ä', 'M', 'J', '.', 'V', 'Y', 'R', 'P', 'H', 'D', ',', 'Ö', 'G']
+
+##Now, this process will be manual and exploratory
+#The main goal is to find the permutation which will provide the highest number of matches
+#We'll add missing letters from finnish alphabet
+#for letter in most_frequent_finnish_letters:
+#    if letter not in noita_raw_frequency_list:
+#        noita_raw_frequency_list.append(letter)
+#print(noita_raw_frequency_list)
+
+raw_permutation = [' ', 'I', 'A', 'T', 'U', 'N', 'L', 'E', 'O', 'S', 'K', 'Ä', 'M', 'J', '.', 'V', 'Y', 'R', 'P', 'H', 'D', ',', 'Ö', 'G', 'C', 'B', 'F', 'W', 'Z', 'X', 'Å', 'Q', 'Š', 'Ž']
+
+permutation_1 = [' ', 'I', 'A', 'T', 'U', 'N', 'L', 'E', 'O', 'S', 'K', 'Ä', 'M', 'J', '.', 'V', 'Y', 'R', 'P', 'H', 'D', ',', 'Ö', 'G', 'C', 'B', 'F', 'W', 'Z', 'X', 'Å', 'Q', 'Š', 'Ž']
+
+test_permutation(all_values,frequency_list,permutation_1,noita_text_list,show_text=False)
+
+#With the first permutation we observe that some sentences start with a blank or a dot, so thoses are misplaced
+#Let's find something which make sense for spaces
+permutation_2 = ['I', 'A', 'T', 'U', ' ','N', 'L', 'E', 'O', 'S', 'K', 'Ä', 'M' ,'J', 'V', 'Y', 'R', 'P', 'H', 'D', 'Ö', 'G', 'C', 'B', 'F', 'W', 'Z', 'X', 'Å', 'Q', 'Š', 'Ž', '.', ',']
+test_permutation(all_values,frequency_list,permutation_2,noita_text_list,show_text=False)
+
+#Let's try to find something better randomly
+#do_random_permutations(all_values,frequency_list,permutation_1,noita_text_list)
+
+permutation_3 = [' ','I', 'B', 'L', 'F', 'T',  'O', 'Ö', 'W', 'N', 'Š', 'S', 'V', 'Q', 'Y', 'U', 'Ž', 'D', 'Å', 'J', 'E', 'M', 'P', ',', 'A', 'R', 'H', 'Ä', '.', 'C', 'G', 'Z', 'K', 'X']
+test_permutation(all_values,frequency_list,permutation_3,noita_text_list,show_text=True)

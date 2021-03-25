@@ -131,27 +131,42 @@ def get_finish_dict():
 #https://www.sttmedia.com/characterfrequency-finnish
 most_frequent_finnish_letters = ['A', 'I', 'T', 'N', 'E', 'S', 'O', 'L', 'Ä', 'K', 'U', 'M', 'H', 'V', 'R', 'J', 'P', 'Y', 'D', 'Ö', 'G', 'C', 'B', 'F', 'W', 'Z', 'X', 'Å', 'Q', 'Š', 'Ž']
 
+def test_permutation(values,frequency_list,permutation,word_dic,show_text):
+    raw_text = " "
+    cpt_match = 0
+    for val in values:
+        if val in frequency_list:
+            indexFreq = frequency_list.index(val)
+            raw_text += permutation[indexFreq]
+        else:
+            raw_text += "\n"
 
-"""
-def do_random_permutations(n = 10000):
+    for word in word_dic:
+        if word in raw_text:
+            cpt_match += 1
+    if show_text == True:
+        print(raw_text)
+    print("Word match number : " + str(cpt_match))
+
+def do_random_permutations(values,frequency_list,permutation,word_dic,n = 10000):
     best = 0
     for i in range(n):
-        random.shuffle(raw_list)
+        random.shuffle(permutation)
         raw_text = ""
         cpt_match = 0
-        for val in all_values:
-            indexFreq = frequency_list.index(val)
-            raw_text += raw_list[indexFreq]
-        for word in words:
+        for val in values:
+            if val in frequency_list:
+                indexFreq = frequency_list.index(val)
+                raw_text += permutation[indexFreq]
+        for word in word_dic:
             if word in raw_text:
                 cpt_match+=1
         log = ""
         log += raw_text + "\n"
-        log += str(cpt_match)+" matches for permutation "+ str(raw_list)+"\n\n"
+        log += str(cpt_match)+" matches for permutation "+ str(permutation)+"\n\n"
         print(log)
         if cpt_match >= best:
             fin = open("log.txt", "a", encoding='utf8')
             best = cpt_match
             fin.write(log)
             fin.close()
-"""
