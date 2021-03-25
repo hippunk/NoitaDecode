@@ -1,9 +1,13 @@
+import itertools
+
 import cv2
 from imutils import contours
 import os
 from natsort import natsorted, ns
 import shutil
 import numpy as np
+from numpy import random
+from finnish_alphabet_frequency import finnish_alphabet_frequency
 
 N_template = cv2.imread('Data/Patterns/N.png')
 S_template = cv2.imread('Data/Patterns/S.png')
@@ -149,7 +153,7 @@ def transform_to_trigram(message):
         while j < len(message[i]):
 
             trigrams.append([message[i][j], message[i][j + 1], [message[i + 1][j]]])
-            if j+2 < len(message[i]):
+            if j + 2 < len(message[i]):
                 trigrams.append([message[i + 1][j + 1], message[i + 1][j + 2], [message[i][j + 2]]])
             j += 3
         trigrams.append("\n")
@@ -173,7 +177,7 @@ def parse_trigrams_to_numeric(trigrams):
             count = 0
             for char in trigram:
                 if isinstance(char, list):
-                    #Here there's an option to compute special operation through key value
+                    # Here there's an option to compute special operation through key value
                     char = char[0]
                 if char == 'N':
                     count += 1
@@ -185,29 +189,32 @@ def parse_trigrams_to_numeric(trigrams):
                     count += 8
                 if char == 'C':
                     count += 16
-            #print(trigram,count)
+            # print(trigram,count)
             val.append(count)
-        else:
-            val.append("\n")
+        # else:
+        # val.append("\n")
     return val
+
 
 def pretty_print_trigrams(trigrams):
     text = ""
     for trigram in trigrams:
-        text += str(trigram)+" "
+        text += str(trigram) + " "
     print(text)
 
-def catch_unique(list_in):
-   # intilize an empty list
-   unq_list = []
 
-   # Check for elements
-   for x in list_in:
-      # check if exists in unq_list
-      if x not in unq_list:
-         unq_list.append(x)
-         # print list
-   return unq_list
+def catch_unique(list_in):
+    # intilize an empty list
+    unq_list = []
+
+    # Check for elements
+    for x in list_in:
+        # check if exists in unq_list
+        if x not in unq_list:
+            unq_list.append(x)
+            # print list
+    return unq_list
+
 
 folders = ['Out/E1', 'Out/E2', 'Out/E3', 'Out/E4', 'Out/E5', 'Out/W1', 'Out/W2', 'Out/W3', 'Out/W4']
 
@@ -225,4 +232,69 @@ for folder in folders:
         all_values.append(value)
 
 print(len(catch_unique(all_values)))
+frequency = {}
 
+# iterating over the list
+for item in all_values:
+    # checking the element in dictionary
+    if item in frequency:
+        # incrementing the counr
+        frequency[item] += 1
+    else:
+        # initializing the count
+        frequency[item] = 1
+
+# printing the frequency
+print(frequency)
+
+def sort_dict(dict):
+    sorted_dict = {}
+    sorted_list = []
+    sorted_keys = sorted(dict, key=dict.get,reverse=True)  # [1, 3, 2]
+
+    for w in sorted_keys:
+        sorted_dict[w] = dict[w]
+
+        sorted_list.append(w)
+
+    return sorted_dict,sorted_list
+
+frequency_sorted,frequency_list = sort_dict(frequency)
+print(frequency_sorted)  # {1: 1, 3: 4, 2: 9}
+
+#Will allow manual permutations
+raw_list = ['A', 'I', 'T', 'N', 'E', 'S', 'O', 'L', 'Ä', 'K', 'U', 'M', 'H', 'V', 'R', 'J', 'P', 'Y', 'D', 'Ö', 'G', 'C', 'B', 'F', 'W', 'Z', 'X', 'Å', 'Q', 'Š', 'Ž']
+
+words = []
+with open('finnish_dictionary.txt',encoding='utf8') as f:
+    for word in f.readlines():
+        words.append(word.replace('\n',''))
+
+#print(words)
+
+best = 0
+for permutation in itertools.permutations(raw_list):
+    raw_text = ""
+    cpt_match = 0
+    for val in all_values:
+        indexFreq = frequency_list.index(val)
+        raw_text += permutation[indexFreq]
+    for word in words:
+        if word in raw_text:
+            cpt_match+=1
+    log = ""
+    log += raw_text + "\n"
+    log += str(cpt_match)+" matches for permutation "+ str(permutation)+"\n\n"
+    print(log)
+    if cpt_match > best:
+        fin = open("log.txt", "a", encoding='utf8')
+        best = cpt_match
+        fin.write(log)
+        fin.close()
+#
+#"for val in all_values:
+
+#    indexFreq = frequency_list.index(val)
+#    test += raw_list[indexFreq]
+#print(test)
+#print(all_values)
