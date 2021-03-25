@@ -187,14 +187,14 @@ def parse_trigrams_to_numeric(trigrams):
                     count += 16
             #print(trigram,count)
             val.append(count)
-        #else:
-        #    val.append("\n")
+        else:
+            val.append("\n")
     return val
 
 def pretty_print_trigrams(trigrams):
     text = ""
     for trigram in trigrams:
-        text += str(trigram)
+        text += str(trigram)+" "
     print(text)
 
 def catch_unique(list_in):
@@ -219,6 +219,8 @@ for folder in folders:
     trigrams = transform_to_trigram(message)
     pretty_print_trigrams(trigrams)
     values = parse_trigrams_to_numeric(trigrams)
+    pretty_print_trigrams(values)
+
     for value in values:
         all_values.append(value)
 

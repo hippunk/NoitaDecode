@@ -1,112 +1,226 @@
-- East 1:
+Trigrams are computed as sum of values :
+(This is inspired from linux user rights system which ensure unique value for each combinaison)
+'N' = 1
+'S' = 2
+'W' = 4
+'E' = 8
+'C' = 16
 
-E C N C N S E E S S C O C O N N S C E S E N N O S N S C S S C C O C E O C C C
-C S E C O N E E C C C N O E E E O E N E E E E C N N C C C S E C N S O N N N S
-S N C E E N C O O C C C E C C N C O C O C N O O N O E C S S C E E C S O E O N
-E S N S N S N S C C S N N S E N E C N O E E S N S S N O O N S O N O O N E N N
-C N O C C S E N E N N O N S C C O N N N C N C C E O N E O N C C O C S N C C N
-C O C S S N O S E S O N N E E N C N C N C C O C N E C O N E O O E O O E O C E
-N S S S N E E C S S C N C S N N S N N N E N N E N C S E E S N O
-N S N C O E O E E O N S C S C O N N C E C S N E S E C O S N S
+Total of different values on all messages : 28
 
-- East 2:
+East 1
 
-N E N C N S E E S S C O C O N N S C E S E N N O S N S C S S C C O C E O C C O
-N S E C O N E E C C C N O E E E O E N E E E E C N N C C C S E C N S O N N S E
-S C E C N S E S C C O O E N C N O S C C N E N O N O C S N N C E O N C O E E S
-N C E O O N N N S E E E E S N O C S S S C N S C E S N C N C S E E O O N O E E
-C N O N N S C S C N O O N C E C E C S N N N N O E O N C S O E S E N S E N N E
-N O N N E C N E C C O C N C S C E E N E E O C E C O C C C C N C S E E N C O C
-C C N N S E E N C C O E E S N C O S E O E C N S N C S C N C E C C S C C E E N
-C E C N O E E O C S N E C S N S S C E S N C C C N C S S N C O O N E C N O E E
-C S O E C N C O S N C N N C C E C C N E O
-N S N O C E C E E C E C N O N S E E S N N
+E C N C N S E E S S C W C W N N S C E S E N N W S N S C S S C C W C E W C C C
+C S E C W N E E C C C N W E E E W E N E E E E C N N C C C S E C N S W N N N S 
+S N C E E N C W W C C C E C C N C W C W C N W W N W E C S S C E E C S W E W N 
+E S N S N S N S C C S N N S E N E C N W E E S N S S N W W N S W N W W N E N N 
+C N W C C S E N E N N W N S C C W N N N C N C C E W N E W N C C W C S N C C N 
+C W C S S N W S E S W N N E E N C N C N C C W C N E C W N E W W E W W E W C E 
+N S S S N E E C S S C N C S N N S N N N E N N E N C S E E S N W 
+N S N C W E W E E W N S C S C W N N C E C S N E S E C W S N S 
 
-- East 3:
+['E', 'C', ['C']] ['S', 'E', ['N']] ['C', 'N', ['C']] ['W', 'N', ['S']] ['E', 'E', ['E']] ['E', 'C', ['S']] ['S', 'C', ['C']] ['C', 'N', ['W']] ['C', 'W', ['W']] ['E', 'E', ['N']] ['N', 'S', ['E']] ['W', 'E', ['C']] ['E', 'S', ['N']] ['E', 'E', ['E']] ['N', 'N', ['E']] ['E', 'C', ['W']] ['S', 'N', ['N']] ['N', 'C', ['S']] ['C', 'S', ['C']] ['C', 'S', ['S']] ['C', 'C', ['E']] ['C', 'N', ['W']] ['C', 'E', ['S']] ['W', 'N', ['W']] ['C', 'C', ['N']] ['N', 'S', ['C']]
+['S', 'N', ['E']] ['S', 'N', ['C']] ['E', 'E', ['S']] ['N', 'S', ['N']] ['C', 'W', ['N']] ['S', 'C', ['W']] ['C', 'C', ['C']] ['S', 'N', ['C']] ['E', 'C', ['N']] ['S', 'E', ['C']] ['N', 'C', ['N']] ['E', 'C', ['W']] ['C', 'W', ['N']] ['W', 'E', ['C']] ['N', 'W', ['E']] ['S', 'N', ['W']] ['N', 'W', ['S']] ['S', 'N', ['E']] ['C', 'S', ['W']] ['W', 'N', ['S']] ['C', 'E', ['S']] ['W', 'N', ['E']] ['C', 'S', ['W']] ['W', 'N', ['W']] ['E', 'W', ['E']] ['N', 'N', ['N']]
+['C', 'N', ['C']] ['W', 'C', ['W']] ['C', 'C', ['S']] ['S', 'N', ['S']] ['E', 'N', ['W']] ['S', 'E', ['E']] ['N', 'N', ['S']] ['W', 'N', ['W']] ['N', 'S', ['N']] ['E', 'E', ['C']] ['C', 'W', ['N']] ['C', 'N', ['N']] ['N', 'N', ['C']] ['N', 'C', ['C']] ['N', 'C', ['C']] ['W', 'C', ['C']] ['E', 'W', ['N']] ['E', 'C', ['N']] ['E', 'W', ['W']] ['N', 'E', ['N']] ['C', 'C', ['W']] ['W', 'E', ['W']] ['C', 'S', ['W']] ['W', 'E', ['N']] ['C', 'C', ['W']] ['C', 'E', ['N']]
+['N', 'S', ['N']] ['S', 'N', ['S']] ['S', 'N', ['C']] ['W', 'E', ['E']] ['E', 'C', ['W']] ['E', 'E', ['S']] ['S', 'C', ['W']] ['N', 'S', ['N']] ['C', 'S', ['C']] ['S', 'C', ['N']] ['N', 'S', ['W']] ['N', 'N', ['N']] ['N', 'N', ['C']] ['E', 'C', ['E']] ['N', 'N', ['S']] ['N', 'E', ['E']] ['N', 'C', ['S']] ['E', 'C', ['S']] ['E', 'E', ['W']] ['S', 'N', ['S']] ['N', 'W', ['S']]
+ 
+40 11 33 7 24 26 34 21 24 17 11 28 11 24 10 28 4 19 34 20 40 21 26 9 33 19 
+11 19 18 4 21 22 48 19 25 26 18 28 21 28 13 7 7 11 22 7 26 13 22 9 20 3
+33 24 34 5 13 18 4 9 4 32 21 18 18 33 33 36 13 25 16 10 36 16 22 13 36 25
+4 5 19 20 28 18 22 4 34 19 7 3 18 32 4 17 19 26 20 5 7
 
-E E N C N O S C O C C C N C C S C E E E C E S N E E E E S E N O O N O O E N N
-S S E C O N C C E E E E O S N S O N C C S E O E C C C C N C E E C C O E O S N
-S N S E E S S N E N E C N S O C C O N O N S C E S N C C C N E S N C O S N S C
-C E C C E C N O C C C E C E N E N E S N N N C C C C S N N E E E C N N C C S E
-N O C E N O E E E C E S C O E C C N E N O E O N E N N E E S N C O C N C C S O
-C C S C E N C S N S C C E N E E N C S N C C C C S N E S S E C C S E O C O E E
-C C N E O C E O N C E C E S E C O S C O S C S N E E O N S N S N E S C N N O E
-E S E S N N N S C E N N C E N C E C E E E S O N O N E N N S E O C S E N E S C
-C C N C S C N E O E E N E E O C S S C C S E N N C E O E N S N S S E S N C C N
-O N C E N C N C S S C C O S E C S N O N E N N N O E E S S C O C S O C C C O N
-C O N E O C N E S C O
-C O E S C N C N C O
+East 2
 
-- East 4:
+N E N C N S E E S S C W C W N N S C E S E N N W S N S C S S C C W C E W C C W 
+N S E C W N E E C C C N W E E E W E N E E E E C N N C C C S E C N S W N N S E 
+S C E C N S E S C C W W E N C N W S C C N E N W N W C S N N C E W N C W E E S 
+N C E W W N N N S E E E E S N W C S S S C N S C E S N C N C S E E W W N W E E 
+C N W N N S C S C N W W N C E C E C S N N N N W E W N C S W E S E N S E N N E 
+N W N N E C N E C C W C N C S C E E N E E W C E C W C C C C N C S E E N C W C 
+C C N N S E E N C C W E E S N C W S E W E C N S N C S C N C E C C S C C E E N 
+C E C N W E E W C S N E C S N S S C E S N C C C N C S S N C W W N E C N W E E 
+C S W E C N C W S N C N N C C E C C N E W 
+N S N W C E C E E C E C N W N S E E S N N 
 
-N C N C N O S C O C C C N C C C C C C N C E N S E S S N E C N O E N S S C C S
-E S E C O N C C E E E E O S N E N E O S C O S C S C C N N C E C S O E N N S C
-N C N C C O E E S E N C C S O S C C N O O E N O E E O C E E E C C S C C C E E
-S C S O N N C E E S N S E C E O C S S C E C S C E E E O O N N O E C N C N O N
-N O S E S O S C C N E C E O E E S C N N C S C N S C E C C N C O C C S C N S C
-C N E S S E O C N S O N S O N S C E O O N S C N O N E O N E E E E S C S S E E
-E N E E E E N O S N S C S C E C N S N C E N N S N C E E S C C C S N C S E S E
-O S E S S N O N N C S E O C S E C C N E E N C S N N E O S N O O C N E C E S N
-N E E C E O E S C N C N S N N E S E E N S C S
-S O E N E N C E E C N C C S E S C S O C S O
+['N', 'E', ['N']] ['S', 'E', ['N']] ['C', 'N', ['C']] ['W', 'N', ['S']] ['E', 'E', ['E']] ['E', 'C', ['S']] ['S', 'C', ['C']] ['C', 'N', ['W']] ['C', 'W', ['W']] ['E', 'E', ['N']] ['N', 'S', ['E']] ['W', 'E', ['C']] ['E', 'S', ['N']] ['E', 'E', ['E']] ['N', 'N', ['E']] ['E', 'C', ['W']] ['S', 'N', ['N']] ['N', 'C', ['S']] ['C', 'S', ['C']] ['C', 'S', ['S']] ['C', 'C', ['E']] ['C', 'N', ['W']] ['C', 'E', ['S']] ['W', 'N', ['W']] ['C', 'C', ['N']] ['S', 'E', ['W']]
+['S', 'C', ['N']] ['C', 'E', ['E']] ['C', 'N', ['W']] ['W', 'N', ['S']] ['E', 'S', ['N']] ['N', 'S', ['C']] ['C', 'W', ['E']] ['E', 'E', ['W']] ['E', 'N', ['E']] ['S', 'N', ['C']] ['N', 'W', ['W']] ['C', 'S', ['S']] ['C', 'C', ['S']] ['S', 'C', ['N']] ['E', 'N', ['N']] ['S', 'C', ['W']] ['N', 'W', ['E']] ['S', 'N', ['C']] ['S', 'N', ['C']] ['N', 'C', ['N']] ['C', 'E', ['S']] ['E', 'E', ['W']] ['N', 'C', ['W']] ['W', 'N', ['W']] ['E', 'E', ['W']] ['E', 'E', ['S']]
+['C', 'N', ['N']] ['W', 'N', ['W']] ['N', 'N', ['N']] ['E', 'C', ['S']] ['C', 'S', ['N']] ['E', 'C', ['C']] ['N', 'W', ['C']] ['W', 'C', ['W']] ['N', 'C', ['N']] ['C', 'S', ['E']] ['C', 'E', ['C']] ['E', 'E', ['C']] ['S', 'N', ['N']] ['E', 'E', ['N']] ['N', 'N', ['W']] ['C', 'E', ['W']] ['E', 'W', ['C']] ['W', 'C', ['N']] ['C', 'S', ['C']] ['C', 'C', ['W']] ['E', 'S', ['N']] ['C', 'S', ['E']] ['N', 'S', ['E']] ['E', 'N', ['E']] ['N', 'N', ['C']] ['W', 'C', ['E']]
+['C', 'C', ['C']] ['E', 'C', ['N']] ['N', 'S', ['N']] ['W', 'E', ['E']] ['E', 'N', ['E']] ['W', 'C', ['C']] ['C', 'W', ['S']] ['N', 'E', ['E']] ['E', 'S', ['C']] ['S', 'N', ['N']] ['C', 'W', ['S']] ['S', 'C', ['S']] ['E', 'W', ['E']] ['S', 'N', ['E']] ['C', 'N', ['C']] ['C', 'C', ['S']] ['N', 'C', ['N']] ['C', 'S', ['S']] ['C', 'N', ['S']] ['N', 'C', ['C']] ['E', 'C', ['W']] ['W', 'N', ['C']] ['S', 'C', ['E']] ['C', 'N', ['C']] ['E', 'E', ['W']] ['E', 'E', ['N']]
+['C', 'S', ['N']] ['S', 'N', ['W']] ['E', 'C', ['W']] ['C', 'E', ['N']] ['C', 'W', ['C']] ['E', 'E', ['S']] ['N', 'C', ['C']] ['E', 'C', ['N']] ['N', 'C', ['N']] ['W', 'N', ['C']] ['E', 'C', ['S']] ['E', 'E', ['C']] ['N', 'E', ['S']] ['N', 'N', ['W']]
+ 
+10 11 33 7 24 26 34 21 24 17 11 28 11 24 10 28 4 19 34 20 40 21 26 9 33 14 
+19 32 21 7 11 19 28 20 17 19 9 20 34 19 10 22 13 19 19 18 26 20 21 9 20 18
+18 9 3 26 19 40 21 24 18 26 40 32 4 17 6 28 28 21 34 36 11 26 11 17 18 28
+48 25 4 20 17 36 22 17 26 4 22 20 20 11 33 34 18 20 19 33 28 21 26 33 20 17
+19 7 28 25 36 18 33 25 18 21 26 32 11 6
 
-- East 5:
+East 3
 
-N N N C N O S C O C C C N C C C C C C N C E N S E S S N E C N O S C O O N S S
-S S E C O N C C E E E E O S N E N E O S C O S C S C C N N C E N N N N E O S C
-N C N E N O E E S S C E C E O C N O N O O E N E E E E E S C E N E E N S E S S
-S C S O N N C E E O C N E C E C O N S C E C C E E O E O E C E O C S O N E C E
-C N O N N C N N O N C S N N N C N C E O C N N C E C O C N C C N S N C C N S C
-E N N E N N N S C N N C O O N E N N N N E O C S O N C N E E C O C C O N E N S
-N C E C O N C O N E E N N S O N S C N S S C N S E O S C N N C O E C N C E E N
-C E C E C S C C E E O C C N C N E C O O E S N N C O E N N N N O E C S N N C E
-N S N E E O E E C E E E C O N
-E S E O O E N C N S S N O S N
+E E N C N W S C W C C C N C C S C E E E C E S N E E E E S E N W W N W W E N N 
+S S E C W N C C E E E E W S N S W N C C S E W E C C C C N C E E C C W E W S N 
+S N S E E S S N E N E C N S W C C W N W N S C E S N C C C N E S N C W S N S C 
+C E C C E C N W C C C E C E N E N E S N N N C C C C S N N E E E C N N C C S E 
+N W C E N W E E E C E S C W E C C N E N W E W N E N N E E S N C W C N C C S W 
+C C S C E N C S N S C C E N E E N C S N C C C C S N E S S E C C S E W C W E E 
+C C N E W C E W N C E C E S E C W S C W S C S N E E W N S N S N E S C N N W E 
+E S E S N N N S C E N N C E N C E C E E E S W N W N E N N S E W C S E N E S C 
+C C N C S C N E W E E N E E W C S S C C S E N N C E W E N S N S S E S N C C N 
+W N C E N C N C S S C C W S E C S N W N E N N N W E E S S C W C S W C C C W N 
+C W N E W C N E S C W 
+C W E S C N C N C W 
 
-- West 1:
+['E', 'E', ['S']] ['S', 'E', ['N']] ['C', 'N', ['C']] ['W', 'N', ['W']] ['S', 'C', ['C']] ['C', 'E', ['W']] ['C', 'C', ['E']] ['E', 'E', ['C']] ['N', 'C', ['W']] ['S', 'N', ['C']] ['S', 'C', ['S']] ['W', 'N', ['E']] ['E', 'E', ['C']] ['C', 'S', ['C']] ['E', 'S', ['E']] ['W', 'E', ['N']] ['E', 'E', ['C']] ['C', 'C', ['E']] ['E', 'S', ['C']] ['N', 'C', ['E']] ['N', 'W', ['E']] ['E', 'C', ['W']] ['N', 'W', ['C']] ['W', 'E', ['W']] ['E', 'N', ['W']] ['S', 'N', ['N']]
+['S', 'N', ['C']] ['E', 'C', ['S']] ['E', 'E', ['C']] ['E', 'C', ['S']] ['S', 'N', ['N']] ['W', 'C', ['E']] ['N', 'E', ['C']] ['C', 'E', ['C']] ['N', 'S', ['C']] ['E', 'N', ['W']] ['C', 'C', ['E']] ['N', 'E', ['W']] ['N', 'W', ['S']] ['N', 'N', ['N']] ['S', 'C', ['N']] ['C', 'C', ['E']] ['S', 'N', ['C']] ['C', 'S', ['C']] ['C', 'C', ['N']] ['N', 'E', ['N']] ['E', 'S', ['E']] ['E', 'C', ['N']] ['C', 'W', ['N']] ['N', 'C', ['S']] ['N', 'S', ['C']] ['S', 'E', ['C']]
+['N', 'W', ['C']] ['C', 'S', ['C']] ['E', 'N', ['C']] ['E', 'N', ['W']] ['E', 'E', ['C']] ['S', 'N', ['E']] ['C', 'E', ['S']] ['C', 'C', ['S']] ['C', 'W', ['E']] ['N', 'E', ['E']] ['C', 'C', ['E']] ['N', 'C', ['N']] ['E', 'N', ['S']] ['N', 'C', ['W']] ['E', 'W', ['C']] ['C', 'C', ['N']] ['E', 'N', ['S']] ['N', 'E', ['N']] ['E', 'E', ['S']] ['S', 'E', ['S']] ['N', 'C', ['C']] ['C', 'S', ['W']] ['C', 'N', ['E']] ['W', 'C', ['C']] ['C', 'S', ['W']] ['E', 'E', ['W']]
+['C', 'C', ['E']] ['S', 'E', ['N']] ['E', 'W', ['S']] ['N', 'N', ['C']] ['E', 'W', ['N']] ['S', 'C', ['N']] ['C', 'E', ['E']] ['N', 'N', ['C']] ['E', 'S', ['C']] ['E', 'N', ['E']] ['C', 'W', ['C']] ['E', 'C', ['S']] ['C', 'W', ['E']] ['E', 'E', ['S']] ['C', 'S', ['S']] ['W', 'N', ['N']] ['E', 'E', ['W']] ['N', 'E', ['W']] ['N', 'S', ['N']] ['N', 'S', ['N']] ['S', 'N', ['E']] ['W', 'C', ['E']] ['S', 'C', ['S']] ['E', 'N', ['N']] ['N', 'W', ['E']] ['S', 'C', ['E']]
+['C', 'C', ['W']] ['N', 'C', ['N']] ['C', 'S', ['E']] ['N', 'C', ['C']] ['N', 'E', ['N']] ['C', 'S', ['W']] ['E', 'E', ['S']] ['C', 'C', ['N']] ['E', 'E', ['W']] ['S', 'E', ['W']] ['C', 'S', ['C']] ['S', 'N', ['S']] ['C', 'C', ['W']] ['N', 'E', ['S']] ['E', 'N', ['N']] ['N', 'N', ['N']] ['C', 'E', ['W']] ['E', 'E', ['W']] ['E', 'N', ['S']] ['S', 'C', ['S']] ['N', 'S', ['W']] ['C', 'S', ['S']] ['E', 'S', ['W']] ['C', 'C', ['N']] ['C', 'C', ['C']] ['W', 'N', ['N']]
+['C', 'W', ['C']] ['W', 'E', ['N']] ['E', 'W', ['S']] ['C', 'N', ['C']] ['N', 'E', ['C']] ['N', 'C', ['S']] ['C', 'W', ['W']]
+ 
+18 11 33 9 34 28 40 32 21 19 20 13 32 34 18 13 32 40 26 25 13 28 21 16 13 4 
+19 26 32 26 4 28 25 40 19 13 40 13 7 3 19 40 19 34 33 10 18 25 21 19 19 26
+21 34 25 13 32 11 26 34 28 17 40 18 11 21 28 33 11 10 18 12 33 22 25 36 22 20
+40 11 14 18 13 19 32 18 26 17 36 26 28 18 20 6 20 13 4 4 11 28 20 10 13 26
+36 18 26 33 10 22 18 33 20 14 34 5 36 11 10 3 28 20 11 20 7 20 14 33 48 6
+36 13 14 33 25 19 24
 
-S N N C N S E E S S C O C O N N S C E S E N N O S N S C S S C C O C E O C C O
-C S E C O N E E C C C N O E E E O E N E E E E C N N C C C S E C N S O N N C N
-C E C E C N C O O C C C N C O C O O C O C N O O N O E C S S C E E C S O N S N
-N N N E N S N S C C C N N C E C E C N O E E S N S S N O O N S O N O O N O C N
-E N E E E S S C S E O O C C C E O S E S N N N C E E N E S N C S N C E E C O S
-O C S O S N O C N E E E N N N S O C E N C S C N O N S S O N E E N S S C N S E
-C E O N O E E N O E E E C S C E O E C C N E S E N E O C E S E S E C N O C S
-S N C N S E E N N E N S C E C S E E E E C C O E E S N C S N S E E O N N S
+East 4
 
-- West 2:
--
-S C N C N O S C O E S N N N N N S C N C S E C C N N O E N N N O E C O E N O O
-N S E C O N C C E O O N E C C E E E N O N C N S E O C C E E E E C N E C O C E
-N N C N E C E N C C O O C N E C E E C N O N C C E C E N S C C N S E O S S N E
-O C N N S C N N E C N C S E E S N S O S N O E E S N S E N S C S N N C C C C S
-N O S N N C E E S C E O E E O E C N C E N E E S N O E E C C N C S N N N E E S
-E C S O C N E S C C O N E E E E N S N S E E E C E S C E O E N O C E N N O O C
-N E E E C N C C C C N E N O S N C N E S S S N E C N C E E O E C S E E N
-C N N C N C N C N S E N E S N N C S C S E C S C E O N S E C S E E C S C
+N C N C N W S C W C C C N C C C C C C N C E N S E S S N E C N W E N S S C C S 
+E S E C W N C C E E E E W S N E N E W S C W S C S C C N N C E C S W E N N S C 
+N C N C C W E E S E N C C S W S C C N W W E N W E E W C E E E C C S C C C E E 
+S C S W N N C E E S N S E C E W C S S C E C S C E E E W W N N W E C N C N W N 
+N W S E S W S C C N E C E W E E S C N N C S C N S C E C C N C W C C S C N S C 
+C N E S S E W C N S W N S W N S C E W W N S C N W N E W N E E E E S C S S E E 
+E N E E E E N W S N S C S C E C N S N C E N N S N C E E S C C C S N C S E S E 
+W S E S S N W N N C S E W C S E C C N E E N C S N N E W S N W W C N E C E S N 
+N E E C E W E S C N C N S N N E S E E N S C S 
+S W E N E N C E E C N C C S E S C S W C S W 
 
-- West 3:
+['N', 'C', ['E']] ['S', 'E', ['N']] ['C', 'N', ['C']] ['W', 'N', ['W']] ['S', 'C', ['C']] ['C', 'E', ['W']] ['C', 'C', ['E']] ['E', 'E', ['C']] ['N', 'C', ['W']] ['S', 'N', ['C']] ['C', 'C', ['E']] ['N', 'E', ['C']] ['C', 'N', ['W']] ['S', 'C', ['C']] ['E', 'N', ['W']] ['S', 'C', ['S']] ['E', 'S', ['S']] ['C', 'C', ['S']] ['N', 'E', ['N']] ['N', 'C', ['C']] ['N', 'W', ['E']] ['C', 'S', ['E']] ['N', 'S', ['W']] ['E', 'N', ['S']] ['C', 'C', ['N']] ['S', 'C', ['S']]
+['N', 'C', ['S']] ['C', 'S', ['N']] ['C', 'C', ['W']] ['N', 'N', ['W']] ['E', 'E', ['C']] ['E', 'E', ['S']] ['E', 'N', ['S']] ['N', 'S', ['C']] ['C', 'S', ['E']] ['C', 'E', ['W']] ['S', 'C', ['W']] ['C', 'S', ['C']] ['N', 'W', ['S']] ['C', 'E', ['W']] ['E', 'N', ['C']] ['S', 'C', ['W']] ['E', 'E', ['E']] ['E', 'E', ['W']] ['C', 'E', ['W']] ['W', 'N', ['E']] ['E', 'C', ['N']] ['W', 'E', ['C']] ['S', 'C', ['C']] ['N', 'C', ['C']] ['C', 'E', ['N']] ['W', 'N', ['E']]
+['N', 'W', ['C']] ['N', 'E', ['S']] ['E', 'S', ['S']] ['S', 'E', ['W']] ['S', 'C', ['W']] ['C', 'N', ['C']] ['N', 'E', ['S']] ['W', 'N', ['C']] ['E', 'W', ['S']] ['W', 'N', ['E']] ['E', 'S', ['S']] ['C', 'E', ['C']] ['N', 'N', ['W']] ['W', 'N', ['C']] ['S', 'C', ['S']] ['C', 'N', ['N']] ['S', 'C', ['W']] ['N', 'E', ['E']] ['C', 'C', ['W']] ['N', 'E', ['N']] ['C', 'W', ['E']] ['E', 'E', ['C']] ['C', 'S', ['S']] ['C', 'S', ['C']] ['N', 'S', ['S']] ['E', 'E', ['C']]
+['E', 'N', ['W']] ['S', 'E', ['E']] ['E', 'E', ['S']] ['S', 'N', ['E']] ['N', 'W', ['W']] ['N', 'N', ['S']] ['N', 'S', ['C']] ['S', 'E', ['C']] ['S', 'C', ['W']] ['C', 'S', ['E']] ['C', 'N', ['E']] ['C', 'C', ['S']] ['N', 'C', ['N']] ['E', 'E', ['E']] ['N', 'N', ['N']] ['C', 'S', ['S']] ['N', 'C', ['N']] ['N', 'E', ['E']] ['E', 'S', ['W']] ['S', 'N', ['C']] ['C', 'C', ['W']] ['W', 'C', ['S']] ['N', 'C', ['N']] ['E', 'C', ['S']] ['E', 'S', ['E']] ['S', 'N', ['E']]
+['N', 'E', ['S']] ['W', 'E', ['E']] ['C', 'E', ['N']] ['E', 'N', ['W']] ['E', 'S', ['C']] ['E', 'E', ['C']] ['N', 'C', ['C']] ['N', 'C', ['N']] ['S', 'N', ['C']] ['S', 'E', ['N']] ['E', 'S', ['S']] ['C', 'S', ['E']] ['E', 'N', ['W']] ['C', 'S', ['S']] ['C', 'S', ['W']]
+ 
+25 11 33 9 34 28 40 32 21 19 40 25 21 34 13 20 12 34 10 33 13 26 7 11 33 20 
+19 19 36 6 32 18 11 19 26 28 22 34 7 28 25 22 24 20 28 13 25 28 34 33 25 13
+21 11 12 14 22 33 11 21 14 13 12 40 6 21 20 18 22 17 36 10 28 32 20 34 5 32
+13 18 18 11 9 4 19 26 22 26 25 34 18 24 3 20 18 17 14 19 36 22 18 26 18 11
+11 20 25 13 26 32 33 18 19 11 12 26 13 20 22
 
-N N N C N O S C O C O O C E S N C N C S S E S E N E C N N S E O C C S E C E S
-O S E C O N C C E S O E N E C S C N O O N E N E E E E O C N O E C E N N N S C
-C S S C S N N S O E E O N O O N N N S C S C C S N O E E S O C O E N S N N N E
-O S N O N S E C C E N C N O N E C E N N E O S N E S C E C S N N N O S C C E N
-N C S N S S E N O E C C E S C C N N N O S C S O N O S C S S N N C N E E N E C
-N C N N S E E N N N E C O O E S N C N S N S E N E S N C E C S N N C E E E C C
-N E C N E C N E S N S C C N N C E O C N O N S S C E N C E S C C E E E C C O O
-E N C S N E E E C C C N O O C N E E C C S E S E N O E N O N S S E N S N E E C
-N E C E E O C E E E S O E C S C S S N E C E O O C O C E C C
-C C E N E N N C C N O N N C E E O E N C S O C E O N N O O E
+East 5
 
-- West 4:
+N N N C N W S C W C C C N C C C C C C N C E N S E S S N E C N W S C W W N S S 
+S S E C W N C C E E E E W S N E N E W S C W S C S C C N N C E N N N N E W S C 
+N C N E N W E E S S C E C E W C N W N W W E N E E E E E S C E N E E N S E S S 
+S C S W N N C E E W C N E C E C W N S C E C C E E W E W E C E W C S W N E C E 
+C N W N N C N N W N C S N N N C N C E W C N N C E C W C N C C N S N C C N S C 
+E N N E N N N S C N N C W W N E N N N N E W C S W N C N E E C W C C W N E N S 
+N C E C W N C W N E E N N S W N S C N S S C N S E W S C N N C W E C N C E E N 
+C E C E C S C C E E W C C N C N E C W W E S N N C W E N N N N W E C S N N C E 
+N S N E E W E E C E E E C W N 
+E S E W W E N C N S S N W S N 
 
-S C N C N O S C O C C C N C C C C C C N C E N S E S S N E C N O C C O C C C E
-E S E C O N C C E E E E O S N E N E O S C O S C S C C N N C E E E N N S N O E
-E N N S N C E N O C C N C S E N E E E O N N E O S C C N C C N S N E E S S N S
-C S C E E N E S C N S E S C N O S C O N S O E C S C C C S E S S E O E N N O C
-C O C E N C E O C N C S E C E E N C E O S C E N C N E N C S C N E C S S E S E
-O C E E N N N C S N S E O N E N C E N O E O O C S N N N E E C E N O S N N O N
-E C O E S S E O N E C S S C E C E S S C N C O N E C O E O N C N E E S E N C N
-S N N N O C S N N O E N E S E N E E O N C E O C N S E O O C C S C E E N O O C
-E E O S N O N N O C O E N E N N N O N O C N S C
-C E C E S N C C C C S N C C C N C E N O C C N N
+['N', 'N', ['S']] ['S', 'E', ['N']] ['C', 'N', ['C']] ['W', 'N', ['W']] ['S', 'C', ['C']] ['C', 'E', ['W']] ['C', 'C', ['E']] ['E', 'E', ['C']] ['N', 'C', ['W']] ['S', 'N', ['C']] ['C', 'C', ['E']] ['N', 'E', ['C']] ['C', 'N', ['W']] ['S', 'C', ['C']] ['E', 'N', ['W']] ['S', 'C', ['S']] ['E', 'S', ['S']] ['C', 'C', ['S']] ['N', 'E', ['N']] ['N', 'C', ['C']] ['N', 'W', ['E']] ['N', 'N', ['S']] ['C', 'W', ['N']] ['N', 'E', ['W']] ['N', 'S', ['W']] ['S', 'C', ['S']]
+['N', 'C', ['S']] ['C', 'S', ['N']] ['E', 'N', ['W']] ['N', 'N', ['W']] ['E', 'E', ['C']] ['E', 'E', ['S']] ['S', 'C', ['W']] ['C', 'N', ['E']] ['C', 'E', ['E']] ['C', 'E', ['W']] ['C', 'N', ['C']] ['W', 'N', ['W']] ['N', 'W', ['S']] ['C', 'E', ['W']] ['E', 'N', ['C']] ['C', 'E', ['E']] ['E', 'E', ['E']] ['W', 'E', ['E']] ['E', 'S', ['W']] ['E', 'C', ['C']] ['E', 'N', ['E']] ['W', 'C', ['E']] ['E', 'N', ['S']] ['W', 'N', ['S']] ['E', 'S', ['E']] ['C', 'E', ['S']]
+['C', 'N', ['E']] ['N', 'N', ['W']] ['N', 'N', ['E']] ['N', 'N', ['C']] ['N', 'N', ['N']] ['S', 'C', ['W']] ['N', 'C', ['N']] ['N', 'C', ['S']] ['N', 'N', ['W']] ['W', 'N', ['N']] ['C', 'N', ['E']] ['N', 'N', ['C']] ['E', 'W', ['N']] ['N', 'E', ['C']] ['N', 'N', ['W']] ['C', 'S', ['C']] ['E', 'C', ['W']] ['N', 'C', ['W']] ['C', 'N', ['N']] ['E', 'E', ['C']] ['C', 'N', ['C']] ['W', 'C', ['S']] ['N', 'C', ['C']] ['W', 'N', ['C']] ['N', 'S', ['E']] ['N', 'S', ['C']]
+['N', 'C', ['C']] ['E', 'C', ['E']] ['C', 'W', ['E']] ['C', 'S', ['N']] ['C', 'W', ['C']] ['C', 'E', ['N']] ['E', 'E', ['E']] ['W', 'C', ['N']] ['N', 'S', ['C']] ['N', 'C', ['W']] ['N', 'S', ['N']] ['E', 'C', ['C']] ['N', 'S', ['W']] ['W', 'E', ['S']] ['C', 'N', ['S']] ['N', 'N', ['S']] ['E', 'W', ['C']] ['W', 'E', ['S']] ['C', 'N', ['N']] ['N', 'N', ['N']] ['C', 'W', ['N']] ['W', 'E', ['E']] ['C', 'N', ['C']] ['S', 'N', ['C']] ['E', 'E', ['N']] ['C', 'E', ['N']]
+['N', 'S', ['E']] ['S', 'E', ['N']] ['E', 'E', ['W']] ['W', 'E', ['W']] ['E', 'E', ['N']] ['C', 'N', ['C']] ['E', 'E', ['S']] ['S', 'N', ['E']] ['C', 'W', ['W']] ['S', 'N', ['N']]
+ 
+4 11 33 9 34 28 40 32 21 19 40 25 21 34 13 20 12 34 10 33 13 4 21 13 7 20 
+19 19 13 6 32 18 22 25 32 28 33 9 7 28 25 32 24 20 14 40 17 28 11 7 18 26
+25 6 10 18 3 22 18 19 6 6 25 18 13 25 6 34 28 21 18 32 33 22 33 21 11 19
+33 32 28 19 36 25 24 21 19 21 4 40 7 14 19 4 28 14 18 3 21 20 33 19 17 25
+11 11 20 16 17 33 18 11 24 4
+
+West 1
+
+S N N C N S E E S S C W C W N N S C E S E N N W S N S C S S C C W C E W C C W 
+C S E C W N E E C C C N W E E E W E N E E E E C N N C C C S E C N S W N N C N 
+C E C E C N C W W C C C N C W C W W C W C N W W N W E C S S C E E C S W N S N 
+N N N E N S N S C C C N N C E C E C N W E E S N S S N W W N S W N W W N W C N 
+E N E E E S S C S E W W C C C E W S E S N N N C E E N E S N C S N C E E C W S 
+W C S W S N W C N E E E N N N S W C E N C S C N W N S S W N E E N S S C N S E 
+C E W N W E E N W E E E C S C E W E C C N E S E N E W C E S E S E C N W C S 
+S N C N S E E N N E N S C E C S E E E E C C W E E S N C S N S E E W N N S 
+
+['S', 'N', ['C']] ['S', 'E', ['N']] ['C', 'N', ['C']] ['W', 'N', ['S']] ['E', 'E', ['E']] ['E', 'C', ['S']] ['S', 'C', ['C']] ['C', 'N', ['W']] ['C', 'W', ['W']] ['E', 'E', ['N']] ['N', 'S', ['E']] ['W', 'E', ['C']] ['E', 'S', ['N']] ['E', 'E', ['E']] ['N', 'N', ['E']] ['E', 'C', ['W']] ['S', 'N', ['N']] ['N', 'C', ['S']] ['C', 'S', ['C']] ['C', 'S', ['S']] ['C', 'C', ['E']] ['C', 'N', ['W']] ['C', 'E', ['S']] ['W', 'N', ['W']] ['C', 'C', ['N']] ['C', 'N', ['W']]
+['C', 'E', ['N']] ['N', 'N', ['C']] ['E', 'C', ['E']] ['N', 'S', ['N']] ['C', 'W', ['N']] ['S', 'C', ['W']] ['C', 'C', ['C']] ['C', 'N', ['C']] ['N', 'C', ['N']] ['C', 'E', ['W']] ['C', 'W', ['C']] ['E', 'C', ['W']] ['C', 'W', ['N']] ['W', 'E', ['C']] ['N', 'W', ['E']] ['S', 'N', ['W']] ['N', 'W', ['S']] ['S', 'N', ['E']] ['C', 'S', ['W']] ['W', 'N', ['S']] ['C', 'E', ['S']] ['W', 'N', ['E']] ['C', 'S', ['W']] ['W', 'N', ['W']] ['N', 'S', ['W']] ['C', 'N', ['N']]
+['E', 'N', ['W']] ['C', 'S', ['E']] ['E', 'E', ['W']] ['S', 'N', ['S']] ['S', 'C', ['W']] ['C', 'N', ['S']] ['E', 'W', ['E']] ['E', 'E', ['W']] ['C', 'C', ['N']] ['N', 'N', ['C']] ['E', 'W', ['S']] ['W', 'C', ['S']] ['E', 'S', ['E']] ['N', 'C', ['N']] ['N', 'N', ['S']] ['C', 'N', ['C']] ['E', 'E', ['W']] ['N', 'S', ['N']] ['E', 'S', ['S']] ['W', 'N', ['N']] ['C', 'S', ['E']] ['E', 'N', ['N']] ['C', 'E', ['S']] ['S', 'C', ['E']] ['C', 'W', ['N']] ['S', 'E', ['S']]
+['C', 'E', ['S']] ['N', 'C', ['W']] ['N', 'W', ['N']] ['S', 'E', ['E']] ['E', 'N', ['E']] ['N', 'N', ['W']] ['E', 'E', ['E']] ['N', 'S', ['E']] ['C', 'S', ['C']] ['E', 'C', ['C']] ['E', 'W', ['S']] ['E', 'E', ['E']] ['C', 'C', ['E']] ['E', 'C', ['N']] ['E', 'S', ['C']] ['W', 'E', ['E']] ['N', 'E', ['E']] ['S', 'N', ['W']] ['C', 'E', ['C']] ['S', 'N', ['S']] ['E', 'S', ['S']] ['E', 'E', ['E']] ['C', 'N', ['W']] ['N', 'N', ['W']] ['C', 'S', ['S']]
+ 
+19 11 33 7 24 26 34 21 24 17 11 28 11 24 10 28 4 19 34 20 40 21 26 9 33 21 
+25 18 32 4 21 22 48 33 18 28 36 28 21 28 13 7 7 11 22 7 26 13 22 9 7 18
+13 26 20 5 22 19 20 20 33 18 14 22 18 18 4 33 20 4 12 6 26 10 26 26 21 12
+26 21 6 18 17 6 24 11 34 40 14 24 40 25 26 20 17 7 40 5 12 24 21 6 20
+
+West 2
+
+S C N C N W S C W E S N N N N N S C N C S E C C N N W E N N N W E C W E N W W 
+N S E C W N C C E W W N E C C E E E N W N C N S E W C C E E E E C N E C W C E 
+N N C N E C E N C C W W C N E C E E C N W N C C E C E N S C C N S E W S S N E 
+W C N N S C N N E C N C S E E S N S W S N W E E S N S E N S C S N N C C C C S 
+N W S N N C E E S C E W E E W E C N C E N E E S N W E E C C N C S N N N E E S 
+E C S W C N E S C C W N E E E E N S N S E E E C E S C E W E N W C E N N W W C 
+N E E E C N C C C C N E N W S N C N E S S S N E C N C E E W E C S E E N 
+C N N C N C N C N S E N E S N N C S C S E C S C E W N S E C S E E C S C 
+
+['S', 'C', ['N']] ['S', 'E', ['N']] ['C', 'N', ['C']] ['W', 'N', ['W']] ['S', 'C', ['C']] ['C', 'E', ['W']] ['E', 'S', ['W']] ['W', 'N', ['N']] ['N', 'N', ['E']] ['C', 'C', ['N']] ['N', 'S', ['E']] ['E', 'E', ['C']] ['N', 'C', ['N']] ['W', 'N', ['S']] ['E', 'C', ['C']] ['N', 'S', ['C']] ['N', 'N', ['E']] ['W', 'C', ['W']] ['E', 'N', ['C']] ['E', 'E', ['N']] ['N', 'W', ['E']] ['E', 'C', ['E']] ['C', 'W', ['N']] ['E', 'C', ['E']] ['N', 'W', ['W']] ['C', 'E', ['W']]
+['N', 'N', ['W']] ['C', 'N', ['C']] ['N', 'E', ['N']] ['S', 'C', ['C']] ['E', 'N', ['N']] ['N', 'E', ['C']] ['C', 'W', ['C']] ['N', 'C', ['W']] ['C', 'N', ['S']] ['E', 'E', ['E']] ['C', 'E', ['S']] ['N', 'S', ['E']] ['C', 'N', ['W']] ['S', 'N', ['W']] ['N', 'C', ['W']] ['E', 'E', ['C']] ['E', 'C', ['S']] ['N', 'S', ['E']] ['N', 'S', ['E']] ['N', 'S', ['C']] ['C', 'N', ['C']] ['S', 'N', ['S']] ['E', 'W', ['N']] ['C', 'C', ['S']] ['S', 'N', ['C']] ['C', 'S', ['E']]
+['N', 'W', ['E']] ['C', 'S', ['S']] ['N', 'N', ['W']] ['C', 'N', ['C']] ['E', 'E', ['E']] ['S', 'C', ['S']] ['C', 'E', ['C']] ['W', 'N', ['W']] ['E', 'E', ['E']] ['E', 'E', ['W']] ['E', 'C', ['E']] ['N', 'S', ['N']] ['C', 'E', ['N']] ['S', 'E', ['N']] ['E', 'E', ['E']] ['E', 'C', ['S']] ['N', 'W', ['E']] ['S', 'C', ['E']] ['E', 'C', ['E']] ['W', 'E', ['C']] ['N', 'C', ['N']] ['W', 'C', ['S']] ['N', 'N', ['E']] ['N', 'N', ['N']] ['E', 'E', ['W']] ['W', 'C', ['S']]
+['N', 'E', ['C']] ['N', 'N', ['E']] ['E', 'C', ['C']] ['N', 'C', ['N']] ['C', 'C', ['N']] ['C', 'N', ['C']] ['C', 'N', ['S']] ['E', 'N', ['E']] ['N', 'W', ['E']] ['S', 'N', ['S']] ['N', 'C', ['N']] ['C', 'S', ['N']] ['E', 'S', ['C']] ['S', 'E', ['S']] ['S', 'N', ['C']] ['S', 'C', ['E']] ['C', 'N', ['E']] ['W', 'N', ['C']] ['E', 'E', ['S']] ['E', 'C', ['W']] ['E', 'C', ['S']] ['E', 'E', ['S']] ['E', 'E', ['C']] ['S', 'C', ['N']]
+ 
+19 11 33 9 34 28 14 6 10 33 11 32 18 7 40 19 10 24 25 17 13 32 21 32 9 28 
+6 33 10 34 10 25 36 21 19 24 26 11 21 7 21 32 26 11 11 19 33 5 13 34 19 26
+13 20 6 33 24 20 40 9 24 20 32 4 25 11 24 26 13 26 32 28 18 22 10 3 20 22
+25 10 40 18 33 33 19 17 13 5 18 19 26 12 19 26 25 21 18 28 26 18 32 19
+
+West 3
+
+N N N C N W S C W C W W C E S N C N C S S E S E N E C N N S E W C C S E C E S 
+W S E C W N C C E S W E N E C S C N W W N E N E E E E W C N W E C E N N N S C 
+C S S C S N N S W E E W N W W N N N S C S C C S N W E E S W C W E N S N N N E 
+W S N W N S E C C E N C N W N E C E N N E W S N E S C E C S N N N W S C C E N 
+N C S N S S E N W E C C E S C C N N N W S C S W N W S C S S N N C N E E N E C 
+N C N N S E E N N N E C W W E S N C N S N S E N E S N C E C S N N C E E E C C 
+N E C N E C N E S N S C C N N C E W C N W N S S C E N C E S C C E E E C C W W 
+E N C S N E E E C C C N W W C N E E C C S E S E N W E N W N S S E N S N E E C 
+N E C E E W C E E E S W E C S C S S N E C E W W C W C E C C 
+C C E N E N N C C N W N N C E E W E N C S W C E W N N W W E 
+
+['N', 'N', ['W']] ['S', 'E', ['N']] ['C', 'N', ['C']] ['W', 'N', ['W']] ['S', 'C', ['C']] ['C', 'E', ['W']] ['C', 'W', ['S']] ['W', 'E', ['W']] ['C', 'E', ['N']] ['E', 'C', ['S']] ['N', 'C', ['S']] ['C', 'N', ['N']] ['C', 'S', ['W']] ['W', 'N', ['S']] ['E', 'S', ['E']] ['N', 'E', ['E']] ['N', 'E', ['E']] ['E', 'E', ['C']] ['N', 'N', ['W']] ['C', 'N', ['S']] ['E', 'W', ['W']] ['E', 'C', ['C']] ['C', 'S', ['E']] ['N', 'N', ['E']] ['C', 'E', ['N']] ['S', 'C', ['S']]
+['C', 'S', ['W']] ['S', 'N', ['S']] ['C', 'S', ['W']] ['N', 'S', ['N']] ['N', 'S', ['E']] ['C', 'C', ['W']] ['E', 'E', ['E']] ['N', 'C', ['W']] ['N', 'W', ['N']] ['W', 'N', ['W']] ['N', 'N', ['E']] ['C', 'E', ['N']] ['S', 'C', ['N']] ['N', 'E', ['S']] ['C', 'C', ['W']] ['S', 'N', ['S']] ['N', 'W', ['E']] ['S', 'C', ['E']] ['E', 'S', ['E']] ['C', 'S', ['W']] ['C', 'W', ['N']] ['N', 'N', ['E']] ['N', 'S', ['W']] ['S', 'C', ['N']] ['N', 'N', ['C']] ['E', 'N', ['E']]
+['N', 'C', ['N']] ['C', 'N', ['S']] ['N', 'S', ['N']] ['S', 'E', ['S']] ['E', 'N', ['E']] ['N', 'N', ['W']] ['E', 'C', ['N']] ['E', 'C', ['C']] ['E', 'S', ['W']] ['W', 'E', ['C']] ['C', 'N', ['S']] ['N', 'C', ['N']] ['N', 'W', ['N']] ['S', 'N', ['S']] ['C', 'S', ['S']] ['E', 'N', ['W']] ['N', 'W', ['E']] ['S', 'N', ['S']] ['C', 'S', ['C']] ['E', 'C', ['S']] ['N', 'N', ['S']] ['N', 'N', ['C']] ['N', 'E', ['C']] ['E', 'E', ['E']] ['N', 'E', ['E']] ['C', 'C', ['C']]
+['N', 'E', ['E']] ['N', 'C', ['C']] ['N', 'E', ['S']] ['N', 'E', ['C']] ['N', 'E', ['E']] ['E', 'C', ['S']] ['N', 'S', ['C']] ['C', 'N', ['C']] ['C', 'N', ['W']] ['W', 'C', ['N']] ['C', 'E', ['N']] ['E', 'E', ['W']] ['C', 'N', ['C']] ['C', 'S', ['W']] ['N', 'S', ['E']] ['S', 'E', ['S']] ['C', 'E', ['N']] ['W', 'E', ['N']] ['C', 'E', ['N']] ['W', 'N', ['S']] ['C', 'C', ['S']] ['S', 'E', ['E']] ['E', 'E', ['N']] ['S', 'N', ['C']] ['C', 'W', ['E']] ['E', 'C', ['W']]
+['N', 'E', ['C']] ['C', 'E', ['C']] ['E', 'E', ['N']] ['E', 'N', ['W']] ['C', 'E', ['N']] ['C', 'C', ['E']] ['E', 'S', ['N']] ['W', 'N', ['W']] ['E', 'C', ['N']] ['C', 'E', ['S']] ['C', 'S', ['E']] ['W', 'E', ['S']] ['N', 'E', ['N']] ['C', 'S', ['C']] ['E', 'W', ['W']] ['C', 'E', ['W']] ['C', 'W', ['W']] ['N', 'N', ['C']] ['E', 'C', ['W']] ['W', 'E', ['C']]
+ 
+6 11 33 9 34 28 22 16 25 26 19 18 22 7 18 17 17 32 6 19 16 40 26 10 25 20 
+22 5 22 4 11 36 24 21 6 9 10 25 19 11 36 5 13 26 18 22 21 10 7 19 18 17
+18 19 4 12 17 6 25 40 14 28 19 18 6 5 20 13 13 5 34 26 4 18 25 24 17 48
+17 33 11 25 17 26 19 33 21 21 25 20 33 22 11 12 25 13 25 7 34 18 17 19 28 28
+25 40 17 13 25 40 11 9 25 26 26 14 10 34 16 28 24 18 28 28
+
+West 4
+
+S C N C N W S C W C C C N C C C C C C N C E N S E S S N E C N W C C W C C C E 
+E S E C W N C C E E E E W S N E N E W S C W S C S C C N N C E E E N N S N W E 
+E N N S N C E N W C C N C S E N E E E W N N E W S C C N C C N S N E E S S N S 
+C S C E E N E S C N S E S C N W S C W N S W E C S C C C S E S S E W E N N W C 
+C W C E N C E W C N C S E C E E N C E W S C E N C N E N C S C N E C S S E S E 
+W C E E N N N C S N S E W N E N C E N W E W W C S N N N E E C E N W S N N W N 
+E C W E S S E W N E C S S C E C E S S C N C W N E C W E W N C N E E S E N C N 
+S N N N W C S N N W E N E S E N E E W N C E W C N S E W W C C S C E E N W W C 
+E E W S N W N N W C W E N E N N N W N W C N S C 
+C E C E S N C C C C S N C C C N C E N W C C N N 
+
+['S', 'C', ['E']] ['S', 'E', ['N']] ['C', 'N', ['C']] ['W', 'N', ['W']] ['S', 'C', ['C']] ['C', 'E', ['W']] ['C', 'C', ['E']] ['E', 'E', ['C']] ['N', 'C', ['W']] ['S', 'N', ['C']] ['C', 'C', ['E']] ['N', 'E', ['C']] ['C', 'N', ['W']] ['S', 'C', ['C']] ['E', 'N', ['W']] ['S', 'C', ['S']] ['E', 'S', ['S']] ['C', 'C', ['S']] ['N', 'E', ['N']] ['N', 'C', ['C']] ['N', 'W', ['E']] ['E', 'E', ['C']] ['C', 'W', ['N']] ['N', 'S', ['C']] ['C', 'C', ['N']] ['W', 'E', ['E']]
+['E', 'N', ['C']] ['S', 'C', ['N']] ['S', 'N', ['E']] ['E', 'N', ['C']] ['E', 'N', ['E']] ['S', 'C', ['W']] ['C', 'C', ['N']] ['S', 'E', ['N']] ['C', 'S', ['S']] ['C', 'N', ['E']] ['N', 'E', ['W']] ['S', 'C', ['E']] ['E', 'W', ['W']] ['N', 'S', ['N']] ['N', 'E', ['W']] ['E', 'C', ['W']] ['S', 'C', ['S']] ['C', 'C', ['C']] ['N', 'C', ['C']] ['S', 'E', ['C']] ['N', 'S', ['S']] ['S', 'E', ['N']] ['E', 'E', ['W']] ['E', 'N', ['S']] ['S', 'N', ['N']] ['W', 'C', ['S']]
+['C', 'W', ['W']] ['C', 'E', ['C']] ['E', 'N', ['E']] ['N', 'N', ['C']] ['E', 'W', ['N']] ['C', 'S', ['C']] ['N', 'C', ['N']] ['S', 'E', ['S']] ['E', 'C', ['W']] ['N', 'E', ['E']] ['E', 'N', ['N']] ['C', 'E', ['C']] ['E', 'W', ['N']] ['W', 'E', ['S']] ['C', 'E', ['W']] ['W', 'C', ['N']] ['C', 'N', ['S']] ['N', 'N', ['E']] ['N', 'C', ['N']] ['E', 'E', ['S']] ['C', 'N', ['C']] ['E', 'N', ['E']] ['C', 'S', ['W']] ['S', 'N', ['S']] ['E', 'S', ['N']] ['W', 'N', ['E']]
+['E', 'C', ['S']] ['N', 'N', ['W']] ['E', 'S', ['N']] ['W', 'C', ['S']] ['E', 'W', ['S']] ['N', 'N', ['N']] ['E', 'C', ['W']] ['E', 'N', ['S']] ['S', 'C', ['E']] ['S', 'E', ['E']] ['C', 'E', ['N']] ['E', 'E', ['S']] ['S', 'C', ['W']] ['N', 'C', ['N']] ['C', 'W', ['E']] ['W', 'C', ['N']] ['E', 'C', ['N']] ['S', 'E', ['W']] ['E', 'W', ['W']] ['W', 'C', ['N']] ['C', 'N', ['C']] ['S', 'C', ['E']] ['E', 'S', ['E']] ['E', 'N', ['E']] ['N', 'C', ['W']] ['W', 'C', ['N']]
+['E', 'E', ['C']] ['E', 'C', ['W']] ['S', 'N', ['E']] ['S', 'N', ['W']] ['N', 'N', ['C']] ['C', 'C', ['W']] ['C', 'W', ['C']] ['S', 'N', ['E']] ['N', 'E', ['C']] ['C', 'C', ['N']] ['N', 'N', ['N']] ['C', 'E', ['W']] ['N', 'W', ['N']] ['W', 'C', ['C']] ['N', 'S', ['C']] ['N', 'N', ['C']]
+ 
+26 11 33 9 34 28 40 32 21 19 40 25 21 34 13 20 12 34 10 33 13 32 21 19 33 20 
+25 19 11 25 17 22 33 11 20 25 13 26 16 4 13 28 20 48 33 26 5 11 20 11 4 22
+24 40 17 18 13 34 18 12 28 17 10 40 13 14 28 21 19 10 18 18 33 17 22 5 11 13
+26 6 11 22 14 3 28 11 26 18 25 18 22 18 28 21 25 14 16 21 33 26 18 17 21 21
+32 28 11 7 18 36 36 11 25 33 3 28 6 36 19 18
