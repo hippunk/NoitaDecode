@@ -1,0 +1,113 @@
+Processing folder: Out/E1
+
+E C N C N S E E S S C W C W N N S C E S E N N W S N S C S S C C W C E W C C C
+C S E C W N E E C C C N W E E E W E N E E E E C N N C C C S E C N S W N N N S
+S N C E E N C W W C C C E C C N C W C W C N W W N W E C S S C E E C S W E W N
+E S N S N S N S C C S N N S E N E C N W E E S N S S N W W N S W N W W N E N N
+C N W C C S E N E N N W N S C C W N N N C N C C E W N E W N C C W C S N C C N
+C W C S S N W S E S W N N E E N C N C N C C W C N E C W N E W W E W W E W C E
+N S S S N E E C S S C N C S N N S N N N E N N E N C S E E S N W
+N S N C W E W E E W N S C S C W N N C E C S N E S E C W S N S
+
+Processing folder: Out/E2
+
+N E N C N S E E S S C W C W N N S C E S E N N W S N S C S S C C W C E W C C W
+N S E C W N E E C C C N W E E E W E N E E E E C N N C C C S E C N S W N N S E
+S C E C N S E S C C W W E N C N W S C C N E N W N W C S N N C E W N C W E E S
+N C E W W N N N S E E E E S N W C S S S C N S C E S N C N C S E E W W N W E E
+C N W N N S C S C N W W N C E C E C S N N N N W E W N C S W E S E N S E N N E
+N W N N E C N E C C W C N C S C E E N E E W C E C W C C C C N C S E E N C W C
+C C N N S E E N C C W E E S N C W S E W E C N S N C S C N C E C C S C C E E N
+C E C N W E E W C S N E C S N S S C E S N C C C N C S S N C W W N E C N W E E
+C S W E C N C W S N C N N C C E C C N E W
+N S N W C E C E E C E C N W N S E E S N N
+
+Processing folder: Out/E3
+
+E E N C N W S C W C C C N C C S C E E E C E S N E E E E S E N W W N W W E N N
+S S E C W N C C E E E E W S N S W N C C S E W E C C C C N C E E C C W E W S N
+S N S E E S S N E N E C N S W C C W N W N S C E S N C C C N E S N C W S N S C
+C E C C E C N W C C C E C E N E N E S N N N C C C C S N N E E E C N N C C S E
+N W C E N W E E E C E S C W E C C N E N W E W N E N N E E S N C W C N C C S W
+C C S C E N C S N S C C E N E E N C S N C C C C S N E S S E C C S E W C W E E
+C C N E W C E W N C E C E S E C W S C W S C S N E E W N S N S N E S C N N W E
+E S E S N N N S C E N N C E N C E C E E E S W N W N E N N S E W C S E N E S C
+C C N C S C N E W E E N E E W C S S C C S E N N C E W E N S N S S E S N C C N
+W N C E N C N C S S C C W S E C S N W N E N N N W E E S S C W C S W C C C W N
+C W N E W C N E S C W
+C W E S C N C N C W
+
+Processing folder: Out/E4
+
+N C N C N W S C W C C C N C C C C C C N C E N S E S S N E C N W E N S S C C S
+E S E C W N C C E E E E W S N E N E W S C W S C S C C N N C E C S W E N N S C
+N C N C C W E E S E N C C S W S C C N W W E N W E E W C E E E C C S C C C E E
+S C S W N N C E E S N S E C E W C S S C E C S C E E E W W N N W E C N C N W N
+N W S E S W S C C N E C E W E E S C N N C S C N S C E C C N C W C C S C N S C
+C N E S S E W C N S W N S W N S C E W W N S C N W N E W N E E E E S C S S E E
+E N E E E E N W S N S C S C E C N S N C E N N S N C E E S C C C S N C S E S E
+W S E S S N W N N C S E W C S E C C N E E N C S N N E W S N W W C N E C E S N
+N E E C E W E S C N C N S N N E S E E N S C S
+S W E N E N C E E C N C C S E S C S W C S W
+
+Processing folder: Out/E5
+
+N N N C N W S C W C C C N C C C C C C N C E N S E S S N E C N W S C W W N S S
+S S E C W N C C E E E E W S N E N E W S C W S C S C C N N C E N N N N E W S C
+N C N E N W E E S S C E C E W C N W N W W E N E E E E E S C E N E E N S E S S
+S C S W N N C E E W C N E C E C W N S C E C C E E W E W E C E W C S W N E C E
+C N W N N C N N W N C S N N N C N C E W C N N C E C W C N C C N S N C C N S C
+E N N E N N N S C N N C W W N E N N N N E W C S W N C N E E C W C C W N E N S
+N C E C W N C W N E E N N S W N S C N S S C N S E W S C N N C W E C N C E E N
+C E C E C S C C E E W C C N C N E C W W E S N N C W E N N N N W E C S N N C E
+N S N E E W E E C E E E C W N
+E S E W W E N C N S S N W S N
+
+Processing folder: Out/W1
+
+S N N C N S E E S S C W C W N N S C E S E N N W S N S C S S C C W C E W C C W
+C S E C W N E E C C C N W E E E W E N E E E E C N N C C C S E C N S W N N C N
+C E C E C N C W W C C C N C W C W W C W C N W W N W E C S S C E E C S W N S N
+N N N E N S N S C C C N N C E C E C N W E E S N S S N W W N S W N W W N W C N
+E N E E E S S C S E W W C C C E W S E S N N N C E E N E S N C S N C E E C W S
+W C S W S N W C N E E E N N N S W C E N C S C N W N S S W N E E N S S C N S E
+C E W N W E E N W E E E C S C E W E C C N E S E N E W C E S E S E C N W C S
+S N C N S E E N N E N S C E C S E E E E C C W E E S N C S N S E E W N N S
+
+Processing folder: Out/W2
+
+S C N C N W S C W E S N N N N N S C N C S E C C N N W E N N N W E C W E N W W
+N S E C W N C C E W W N E C C E E E N W N C N S E W C C E E E E C N E C W C E
+N N C N E C E N C C W W C N E C E E C N W N C C E C E N S C C N S E W S S N E
+W C N N S C N N E C N C S E E S N S W S N W E E S N S E N S C S N N C C C C S
+N W S N N C E E S C E W E E W E C N C E N E E S N W E E C C N C S N N N E E S
+E C S W C N E S C C W N E E E E N S N S E E E C E S C E W E N W C E N N W W C
+N E E E C N C C C C N E N W S N C N E S S S N E C N C E E W E C S E E N
+C N N C N C N C N S E N E S N N C S C S E C S C E W N S E C S E E C S C
+
+Processing folder: Out/W3
+
+N N N C N W S C W C W W C E S N C N C S S E S E N E C N N S E W C C S E C E S
+W S E C W N C C E S W E N E C S C N W W N E N E E E E W C N W E C E N N N S C
+C S S C S N N S W E E W N W W N N N S C S C C S N W E E S W C W E N S N N N E
+W S N W N S E C C E N C N W N E C E N N E W S N E S C E C S N N N W S C C E N
+N C S N S S E N W E C C E S C C N N N W S C S W N W S C S S N N C N E E N E C
+N C N N S E E N N N E C W W E S N C N S N S E N E S N C E C S N N C E E E C C
+N E C N E C N E S N S C C N N C E W C N W N S S C E N C E S C C E E E C C W W
+E N C S N E E E C C C N W W C N E E C C S E S E N W E N W N S S E N S N E E C
+N E C E E W C E E E S W E C S C S S N E C E W W C W C E C C
+C C E N E N N C C N W N N C E E W E N C S W C E W N N W W E
+
+Processing folder: Out/W4
+
+S C N C N W S C W C C C N C C C C C C N C E N S E S S N E C N W C C W C C C E
+E S E C W N C C E E E E W S N E N E W S C W S C S C C N N C E E E N N S N W E
+E N N S N C E N W C C N C S E N E E E W N N E W S C C N C C N S N E E S S N S
+C S C E E N E S C N S E S C N W S C W N S W E C S C C C S E S S E W E N N W C
+C W C E N C E W C N C S E C E E N C E W S C E N C N E N C S C N E C S S E S E
+W C E E N N N C S N S E W N E N C E N W E W W C S N N N E E C E N W S N N W N
+E C W E S S E W N E C S S C E C E S S C N C W N E C W E W N C N E E S E N C N
+S N N N W C S N N W E N E S E N E E W N C E W C N S E W W C C S C E E N W W C
+E E W S N W N N W C W E N E N N N W N W C N S C
+C E C E S N C C C C S N C C C N C E N W C C N N
+
