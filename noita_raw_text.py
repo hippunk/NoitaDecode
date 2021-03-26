@@ -50,4 +50,4 @@ def get_noita_text_as_list():
 
     list_word = text.split(' ')
     list_word.sort()
-    return catch_unique(list_word)
+    return list_word

@@ -121,6 +121,7 @@ def compute_list_frequency(list):
             frequency[item] = 1
     return frequency
 
+
 def get_finish_dict():
     words = []
     with open('finnish_dictionary.txt', encoding='utf8') as f:
@@ -132,25 +133,32 @@ def get_finish_dict():
 most_frequent_finnish_letters = ['A', 'I', 'T', 'N', 'E', 'S', 'O', 'L', 'Ä', 'K', 'U', 'M', 'H', 'V', 'R', 'J', 'P', 'Y', 'D', 'Ö', 'G', 'C', 'B', 'F', 'W', 'Z', 'X', 'Å', 'Q', 'Š', 'Ž']
 
 def test_permutation(values,frequency_list,permutation,word_dic,show_text):
-    raw_text = " "
+    raw_text = ""
     cpt_match = 0
+    list_word = []
     for val in values:
         if val in frequency_list:
             indexFreq = frequency_list.index(val)
             raw_text += permutation[indexFreq]
         else:
+            pass
+
             raw_text += "\n"
 
     for word in word_dic:
         if word in raw_text:
+            list_word.append(word)
             cpt_match += 1
+
     if show_text == True:
         print(raw_text)
-    print("Word match number : " + str(cpt_match))
+    print("Word match number : " + str(cpt_match)+" "+str(list_word))
+    return raw_text
 
 def do_random_permutations(values,frequency_list,permutation,word_dic,n = 10000):
     best = 0
     for i in range(n):
+        word_list = []
         random.shuffle(permutation)
         raw_text = ""
         cpt_match = 0
@@ -160,9 +168,11 @@ def do_random_permutations(values,frequency_list,permutation,word_dic,n = 10000)
                 raw_text += permutation[indexFreq]
         for word in word_dic:
             if word in raw_text:
+                word_list.append(word)
                 cpt_match+=1
         log = ""
         log += raw_text + "\n"
+        log += str(word_list)
         log += str(cpt_match)+" matches for permutation "+ str(permutation)+"\n\n"
         print(log)
         if cpt_match >= best:
@@ -170,3 +180,46 @@ def do_random_permutations(values,frequency_list,permutation,word_dic,n = 10000)
             best = cpt_match
             fin.write(log)
             fin.close()
+
+def run_explorator_cli(values,frequency_list,word_dic):
+    permutation_1 = ['A', 'I', 'T', 'N', 'E', 'S', 'O', 'L', 'Ä', 'K', 'U', 'M', 'H', 'V', 'R', 'J', 'P', 'Y', 'D', 'Ö', 'G', 'C', 'B', 'F', 'W', 'Z', 'X', 'Å', 'Q', 'Š', 'Ž', '.', ',', ' ']
+    change_letter_1 = ""
+    change_letter_2 = ""
+    permutation_dyn = permutation_1
+    test_permutation(values,frequency_list,permutation_dyn,word_dic,show_text=True)
+    while change_letter_1.upper() is not "STOP":
+        print("current permutation : "+str(permutation_dyn))
+        change_letter_1 = input("choose letter 1 or stop to quit\n")
+        #if change_letter_1 not in permutation_dyn:
+        #    print("selected letter ",change_letter_1," doesn't exist in current permutation")
+        #    continue
+        if change_letter_1.upper() is not "STOP":
+            change_letter_2 = input("choose letter 2\n")
+            #if change_letter_2 not in permutation_dyn:
+            #    print("selected letter ",change_letter_2," doesn't exist in current permutation")
+            #    continue
+            if len(change_letter_2) != len(change_letter_1):
+                print("key size doesn't match")
+                continue
+            unique_chage = {}
+            for i in range(len(change_letter_1)):
+                l1 = change_letter_1[i]
+                l2 = change_letter_2[i]
+                if l1 not in unique_chage:
+                    unique_chage[l2] = l1
+                    unique_chage[l1] = l2
+                else:
+                    l1 = unique_chage[l1]
+                index_1 = permutation_dyn.index(l1)
+                index_2 = permutation_dyn.index(l2)
+
+                print(permutation_dyn[index_1] + " > "+permutation_dyn[index_2])
+
+                permutation_dyn[index_1] = l2
+                permutation_dyn[index_2] = l1
+
+
+            print("new permutation : " + str(permutation_dyn))
+            input("Press enter to process")
+            test_permutation(values, frequency_list, permutation_dyn, word_dic, show_text=True)
+
