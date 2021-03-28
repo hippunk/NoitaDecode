@@ -20,8 +20,7 @@ After execution you'll find:
   - E for East
   - C for Center
 
-I didn't took that much time to clean the code, so it's actually some kind of a mess. I apologies for that. It will be better in a few times.
-I'm open to feedback and pool request ;).
+### Glyphes results : https://github.com/hippunk/NoitaDecode/blob/main/glyphes.txt
 
 As discussed by the community, characters could form trigrams.
 ![Triangles](https://i.postimg.cc/QsZw3RsH/graphic-design-is-my-passion2.png?dl=1)
@@ -31,6 +30,8 @@ They are built following this process:
 ![trigrams_build](https://i.postimg.cc/VLWGkVrd/trigrams-process.jpg)
 (There's currently no way to change triangles processing order, but you can do so by changing indices in the function)
 
+### Trigrams results : https://github.com/hippunk/NoitaDecode/blob/main/trigrams.txt
+
 Trigrams are then converted to unique values with parse_trigrams_to_numeric
 For my first hypotesis, I don't consider glyph position so [N,S,O] is equivalent to [O,N,S] etc.
 I've associated each glyph with a value that ensure each combinaison is unique  
@@ -39,6 +40,8 @@ I've associated each glyph with a value that ensure each combinaison is unique
   - W = 100
   - E = 1000
   - C = 10000
+
+### Values results : https://github.com/hippunk/NoitaDecode/blob/main/trigrams.txt
  
  Then I've computed the converted text frequency :
  {10011: 67, 1011: 63, 11010: 61, 11100: 58, 20001: 57, 10101: 56, 11001: 53, 1101: 50, 10002: 45, 20010: 40, 10110: 39, 2001: 35, 21000: 34, 12000: 34, 12: 31, 111: 29, 1002: 29, 2010: 29, 2100: 28, 10020: 27, 102: 25, 20100: 22, 201: 21, 3000: 19, 1110: 19, 21: 15, 1020: 14, 3: 11, 10200: 10, 1200: 9, 30000: 6}
@@ -51,6 +54,9 @@ I've built a translation pattern from those sttmedia alphabet statistics :
 most_frequent_finnish_letters = ['A', 'I', 'T', 'N', 'E', 'S', 'O', 'L', 'Ä', 'K', 'U', 'M', 'H', 'V', 'R', 'J', 'P', 'Y', 'D', 'Ö', 'G', 'C', 'B', 'F', 'W', 'Z', 'X', 'Å', 'Q', 'Š', 'Ž']
 
 And converted our values by matching frequency.
+
+### Texts results : https://github.com/hippunk/NoitaDecode/blob/main/texts.txt
+
 As we can observe. There's a lot of double letters which seems to be a caracteristic of the Finnish language.
 
 ## What's next ?
