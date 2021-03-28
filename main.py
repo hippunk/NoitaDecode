@@ -1,20 +1,31 @@
 from finnish_alphabet_frequency import finnish_alphabet_frequency
 from utils import *
 from noita_raw_text import *
+import numpy as np
+from scipy.ndimage.interpolation import shift
+from view import create_main_view
+
+
+create_main_view()
+
 
 # parse_all_data()
 
 
-folders = ['Out/E1', 'Out/E2', 'Out/E3', 'Out/E4', 'Out/E5', 'Out/W1', 'Out/W2', 'Out/W3', 'Out/W4']
-
+"""
 #Parse every folder
 all_values = []
 all_values_to_print = []
+all_trigrams = []
+
 for folder in folders:
     print("Processing folder: "+folder+"\n")
     message = load_as_array(folder)
     pretty_print_message(message)
     trigrams = transform_to_trigram(message)
+    for line in trigrams:
+        for trigram in line:
+            all_trigrams.append(trigram)
     pretty_print_trigrams(trigrams)
     values = parse_trigrams_to_numeric(trigrams)
     pretty_print_values(values)
@@ -33,6 +44,8 @@ all_values_no_whitespace = []
 for value in all_values:
     if value is not '\n':
         all_values_no_whitespace.append(value)
+
+#find text patterns
 
 #Print everything for convenience
 #pretty_print_values(all_values_to_print)
@@ -98,6 +111,50 @@ permutation_1 = ['A', 'I', 'T', 'N', 'E', 'S', 'O', 'L', 'Ä', 'K', 'U', 'M', 'H
 
 permutation_dyn = permutation_1
 raw_text = test_permutation(all_values, frequency_list, permutation_dyn, noita_text_list_unique, show_text=False)
-print(raw_text)
 
-#run_explorator_cli(all_values,frequency_list,noita_text_list_unique)
+
+
+
+#matches = find_matching_patterns(raw_text,4)
+#matches.sort()
+#print(matches)
+
+matches = ['IEBKN', 'IEBKNHVSA', 'IEBKNHVSAHOSKLÖXKPEL', 'IEJFTKSQMINIFPNRAKÖHSTBE', 'NSNLJJIUJTLUB', 'RSUŽ']
+
+run_explorator_cli(all_values,frequency_list,noita_text_list_unique)
+
+
+print(raw_text)
+print(len(catch_unique(all_trigrams)))
+
+mega_dic = get_finish_dict()
+
+def all_different(pattern):
+    if len(pattern) == len(set(pattern)):
+        return True
+    else:
+        return False
+
+
+match = {}
+for word in mega_dic:
+    pattern = word[1:6]
+    if pattern not in match.keys():
+        match[pattern] = []
+    if all_different(pattern) == True and len(word) >= 6:
+        match[pattern].append(word)
+
+def nb_diff_letter(list):
+    first_letter_list = []
+    for word in list:
+        if word[0] not in first_letter_list:
+            first_letter_list.append(word[0])
+
+    return len(first_letter_list)
+
+for key in match:
+    if nb_diff_letter(match[key]) >= 6:
+        print(key)
+        for word in match[key]:
+            print("\t"+word)
+"""

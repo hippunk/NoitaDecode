@@ -1,6 +1,7 @@
 from natsort import natsorted, ns
 import os
 from numpy import random
+import numpy as np
 
 def load_as_array(path):
     inList = natsorted(os.listdir(path), alg=ns.PATH)
@@ -26,9 +27,9 @@ def transform_to_trigram(message):
         j = 0
         while j < len(message[i]):
 
-            trigrams_line.append([message[i][j], message[i][j + 1], [message[i + 1][j]]])
+            trigrams_line.append([message[i][j], message[i + 1][j], message[i][j + 1]])
             if j + 2 < len(message[i]):
-                trigrams_line.append([message[i + 1][j + 1], message[i + 1][j + 2], [message[i][j + 2]]])
+                trigrams_line.append([message[i + 1][j + 2], message[i][j + 2], message[i + 1][j + 1]])
             j += 3
 
         trigrams.append(trigrams_line)
@@ -130,7 +131,7 @@ def get_finish_dict():
     return words
 
 #https://www.sttmedia.com/characterfrequency-finnish
-most_frequent_finnish_letters = ['A', 'I', 'T', 'N', 'E', 'S', 'O', 'L', 'Ä', 'K', 'U', 'M', 'H', 'V', 'R', 'J', 'P', 'Y', 'D', 'Ö', 'G', 'C', 'B', 'F', 'W', 'Z', 'X', 'Å', 'Q', 'Š', 'Ž']
+most_frequent_finnish_letters = ['I', 'A', 'T', 'S', 'E', 'U', 'K', 'N', 'L', 'O', 'R', 'Ä', 'P', 'M', 'V', 'H', 'Y', 'J', 'D', 'Ö', 'G', 'F', 'B', 'C', 'W', 'Z', 'Š', 'X', 'Q', 'É', 'Ž']
 
 def test_permutation(values,frequency_list,permutation,word_dic,show_text):
     raw_text = ""
@@ -142,7 +143,6 @@ def test_permutation(values,frequency_list,permutation,word_dic,show_text):
             raw_text += permutation[indexFreq]
         else:
             pass
-
             raw_text += "\n"
 
     for word in word_dic:
@@ -223,3 +223,34 @@ def run_explorator_cli(values,frequency_list,word_dic):
             input("Press enter to process")
             test_permutation(values, frequency_list, permutation_dyn, word_dic, show_text=True)
 
+def shift_right(val_array):
+    val_list = val_array.tolist()
+    val_list.pop()
+    val_list.insert(0, 0)
+    return np.array(val_list)
+
+def match_string(list_a, list_b):
+    match = []
+    for i in range(len(list_a)) :
+        if list_a[i] == list_b[i] and list_b[i] != '0':
+            match.append(list_b[i])
+        else:
+            match.append(' ')
+    return " ".join(''.join(match).split())
+
+
+def find_matching_patterns(text,size_limit):
+    words = []
+    text_array = np.array(list(text))
+    padding = np.full(text_array.shape,' ')
+    padded_text = np.concatenate((text_array, padding, padding))
+    key = np.concatenate((text_array, padding, padding))
+
+    loop_len = int(len(key)/3)*2
+    for i in range(loop_len):
+        padded_text = shift_right(padded_text)
+        res = match_string(key,padded_text)
+        for word in res.split(' '):
+            if len(word) >= size_limit:
+                words.append(word)
+    return catch_unique(words)
