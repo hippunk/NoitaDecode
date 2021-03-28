@@ -40,7 +40,7 @@ def parse_trigrams_to_numeric(trigrams):
     for trigram_line in trigrams:
         line = []
         for trigram in trigram_line:
-            if trigram is not "\n":
+            if trigram != "\n":
                 count = 0
                 for char in trigram:
                     if isinstance(char, list):
@@ -68,6 +68,15 @@ def pretty_print_message(message):
             str += message[coord_x][coord_y] + " "
         print(str)
     print("") #line return
+
+def parse_message_as_array(message):
+    message_array = []
+    for coord_x in message:
+        message_line = []
+        for coord_y in message[coord_x]:
+            message_line.append(message[coord_x][coord_y])
+        message_array.append(message_line)
+    return message_array
 
 
 def pretty_print_trigrams(trigrams):
@@ -187,13 +196,13 @@ def run_explorator_cli(values,frequency_list,word_dic):
     change_letter_2 = ""
     permutation_dyn = permutation_1
     test_permutation(values,frequency_list,permutation_dyn,word_dic,show_text=True)
-    while change_letter_1.upper() is not "STOP":
+    while change_letter_1.upper() != "STOP":
         print("current permutation : "+str(permutation_dyn))
         change_letter_1 = input("choose letter 1 or stop to quit\n")
         #if change_letter_1 not in permutation_dyn:
         #    print("selected letter ",change_letter_1," doesn't exist in current permutation")
         #    continue
-        if change_letter_1.upper() is not "STOP":
+        if change_letter_1.upper() != "STOP":
             change_letter_2 = input("choose letter 2\n")
             #if change_letter_2 not in permutation_dyn:
             #    print("selected letter ",change_letter_2," doesn't exist in current permutation")
