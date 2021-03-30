@@ -6,18 +6,15 @@ import numpy as np
 from scipy.ndimage.interpolation import shift
 from view import create_main_view
 
-
-create_main_view()
-
+#create_main_view()
 
 # parse_all_data()
-
 
 import cv2
 # parse_all_data()
 
-
-folders = ['Out/E1', 'Out/E2', 'Out/E3', 'Out/E4', 'Out/E5', 'Out/W1', 'Out/W2', 'Out/W3', 'Out/W4']
+"""
+folders = ['Out/east_1', 'Out/east_2', 'Out/east_3', 'Out/east_4', 'Out/east_5', 'Out/west_1', 'Out/west_2', 'Out/west_3', 'Out/west_4']
 
 #Parse every folder
 all_values = []
@@ -125,7 +122,7 @@ raw_text = test_permutation(all_values, frequency_list, permutation_dyn, noita_t
 
 matches = ['IEBKN', 'IEBKNHVSA', 'IEBKNHVSAHOSKLÖXKPEL', 'IEJFTKSQMINIFPNRAKÖHSTBE', 'NSNLJJIUJTLUB', 'RSUŽ']
 
-run_explorator_cli(all_values,frequency_list,noita_text_list_unique)
+#run_explorator_cli(all_values,frequency_list,noita_text_list_unique)
 
 
 print(raw_text)
@@ -161,8 +158,7 @@ for key in match:
         print(key)
         for word in match[key]:
             print("\t"+word)
-
-#run_explorator_cli(all_values,frequency_list,noita_text_list_unique)
+"""
 
 C_array = np.array(cv2.imread('Data/MinimalPattern/C.png',cv2.IMREAD_GRAYSCALE))
 N_array = np.array(cv2.imread('Data/MinimalPattern/N.png',cv2.IMREAD_GRAYSCALE))
@@ -171,11 +167,11 @@ E_array = np.array(cv2.imread('Data/MinimalPattern/E.png',cv2.IMREAD_GRAYSCALE))
 W_array = np.array(cv2.imread('Data/MinimalPattern/W.png',cv2.IMREAD_GRAYSCALE))
 
 print(N_array)
-message = parse_message_as_array(load_as_array('Out/E1'))
+message = parse_message_as_array(load_as_array('Out/east_1'))
 
 def copy_black_pixel(image,template):
-    for i in range(3):
-        for j in range(3):
+    for i in range(4):
+        for j in range(4):
             if template[i][j] == 0:
                 image[i][j] = 0
     return image
@@ -185,26 +181,28 @@ cpt_j = 0
 i = 0
 j = 0
 offset = 4
+pixel_size = 4
 image = np.full((len(message)*5,len(message[0])*5),255)
 
 print(len(message))
 while i < len(message):
     while j < len(message[i]):
-        cpt_i = max(i*offset,0)
+        cpt_i = i*offset
         cpt_j = j*offset
         if i%2 == 1:
-            cpt_j+=2
+            cpt_j+=int(pixel_size/2)
         eye_code = message[i][j]
+        print(eye_code)
         if eye_code == 'C':
-            copy_black_pixel(image[cpt_i:cpt_i+3,cpt_j:cpt_j+3], C_array)
+            copy_black_pixel(image[cpt_i:cpt_i+pixel_size,cpt_j:cpt_j+pixel_size], C_array)
         if eye_code == 'N':
-            copy_black_pixel(image[cpt_i:cpt_i+3,cpt_j:cpt_j+3], N_array)
+            copy_black_pixel(image[cpt_i:cpt_i+pixel_size,cpt_j:cpt_j+pixel_size], N_array)
         if eye_code == 'S':
-            copy_black_pixel(image[cpt_i:cpt_i+3,cpt_j:cpt_j+3], S_array)
+            copy_black_pixel(image[cpt_i:cpt_i+pixel_size,cpt_j:cpt_j+pixel_size], S_array)
         if eye_code == 'E':
-            copy_black_pixel(image[cpt_i:cpt_i+3,cpt_j:cpt_j+3], E_array)
+            copy_black_pixel(image[cpt_i:cpt_i+pixel_size,cpt_j:cpt_j+pixel_size], E_array)
         if eye_code == 'W':
-            copy_black_pixel(image[cpt_i:cpt_i+3,cpt_j:cpt_j+3], W_array)
+            copy_black_pixel(image[cpt_i:cpt_i+pixel_size,cpt_j:cpt_j+pixel_size], W_array)
         j += 1
 
     i += 1
